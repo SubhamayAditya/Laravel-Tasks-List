@@ -39,6 +39,11 @@
 </head>
 
 <body>
+    @session('success')
+        <div class="alert alert-primary">
+            {{ session('success') }}
+        </div>
+    @endsession
 
     <div class="container mt-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
@@ -71,8 +76,13 @@
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-sm btn-warning"><a href="">Edit</a></button>
-                            <button class="btn btn-sm btn-danger">Delete</button>
+                            <button class="btn btn-sm btn-warning"><a href="{{ route('task.edit',$task->id) }}">Edit</a></button>
+                            <form action="{{ route('task.edit', $task->id) }}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                            </form>
+
                         </td>
                     </tr>
                 @endforeach

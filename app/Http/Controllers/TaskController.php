@@ -19,13 +19,10 @@ class TaskController extends Controller
     //Create task
     public function create(Request $request)
     {
-        $data = $request->validate([
-            'task_name' => 'required'
-        ]);
 
         Tasks::create([
             'task_name' => $request->task_name,
-             'task_date' => $request->task_date,
+            'task_date' => $request->task_date,
             'status' => $request->has('status') ? 1 : 0
         ]);
         return redirect('/')->with('success', 'Task added successfully');
@@ -33,8 +30,37 @@ class TaskController extends Controller
 
 
     // edit task
-    public function edit()
+    public function edit(Tasks $task)
     {
-        return view('edit');
+        return view('edit', [
+            'task' => $task
+        ]);
+    }
+
+    //Update
+    public function update(Request $request, Tasks $task)
+    {
+        $request->validate([
+            'task_name' => 'required',
+            'task_date' => 'required|date',
+        ]);
+
+        $task->update([
+            'task_name' => $request->task_name,
+            'task_date' => $request->task_date,
+            'status'    => $request->has('status') ? 1 : 0,
+        ]);
+
+        return redirect('/')->with('success', 'Task updated successfully');
+    }
+
+
+    //Delete
+    public function delete($id)
+    {
+        $task = Tasks::findOrFail($id);
+        $task->delete();
+
+        return redirect('/')->with('success', 'Task deleted successfully');
     }
 }

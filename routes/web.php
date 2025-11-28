@@ -15,5 +15,10 @@ $tasks = Tasks::orderBy("created_at", "ASC")->get();
 Route::get('/addtask', [TaskController::class,'addtask'])->name('addtask');
 Route::post('/addtask', [TaskController::class, 'create'])->name('task.store');
 
-Route::get('/edit/{id}', [TaskController::class,'edit']);
+Route::get('/edit/{task}', [TaskController::class, 'edit'])->name('task.edit');
+Route::put('/edit/{task}', [TaskController::class, 'update'])->name('task.update');
+
+
+
+Route::delete('/delete/{id}', [TaskController::class, 'delete'])->name('task.delete');
 
