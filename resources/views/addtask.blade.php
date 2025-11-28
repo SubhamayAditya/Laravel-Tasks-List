@@ -29,10 +29,19 @@
                         @enderror
                     </div>
 
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" name="task_date">
+                        @error('task_date')
+                            <div class="error" style="color: red;">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" id="taskStatus" name="status">
                         <label class="form-check-label" for="taskStatus">Completed?</label>
-                        
+
                     </div>
 
                     <button class="btn btn-primary text-white">Save Task</button>

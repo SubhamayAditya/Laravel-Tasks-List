@@ -25,6 +25,7 @@ class TaskController extends Controller
 
         Tasks::create([
             'task_name' => $request->task_name,
+             'task_date' => $request->task_date,
             'status' => $request->has('status') ? 1 : 0
         ]);
         return redirect('/')->with('success', 'Task added successfully');

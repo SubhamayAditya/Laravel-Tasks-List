@@ -51,6 +51,7 @@
                 <tr>
                     <th width="60">ID</th>
                     <th>Task Name</th>
+                    <th>Date</th>
                     <th width="200">Status</th>
                     <th width="150">Actions</th>
                 </tr>
@@ -61,6 +62,7 @@
                     <tr>
                         <td>{{ $task->id }}</td>
                         <td>{{ $task->task_name }}</td>
+                        <td>{{ $task->task_date }}</td>
                         <td>
                             @if ($task->status == 1)
                                 <span class="status-box completed">Completed</span>
@@ -69,10 +71,8 @@
                             @endif
                         </td>
                         <td>
-                            <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                data-bs-target="#editModal">Edit</button>
-                            <button class="btn btn-sm btn-danger" data-bs-toggle="modal"
-                                data-bs-target="#deleteModal">Delete</button>
+                            <button class="btn btn-sm btn-warning"><a href="">Edit</a></button>
+                            <button class="btn btn-sm btn-danger">Delete</button>
                         </td>
                     </tr>
                 @endforeach
