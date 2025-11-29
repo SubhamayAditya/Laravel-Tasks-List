@@ -77,7 +77,8 @@
                         </td>
                         <td>
                             <button class="btn btn-sm btn-warning"><a href="{{ route('task.edit',$task->id) }}">Edit</a></button>
-                            <form action="{{ route('task.edit', $task->id) }}" method="POST" class="d-inline">
+                           
+                            <form action="{{ route('task.delete', $task->id) }}" method="POST" class="d-inline">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Delete</button>

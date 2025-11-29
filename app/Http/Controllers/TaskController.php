@@ -56,9 +56,9 @@ class TaskController extends Controller
 
 
     //Delete
-    public function delete($id)
+    public function delete(Tasks $task)
     {
-        $task = Tasks::findOrFail($id);
+      
         $task->delete();
 
         return redirect('/')->with('success', 'Task deleted successfully');

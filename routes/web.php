@@ -20,5 +20,5 @@ Route::put('/edit/{task}', [TaskController::class, 'update'])->name('task.update
 
 
 
-Route::delete('/delete/{id}', [TaskController::class, 'delete'])->name('task.delete');
+Route::delete('/delete/{task}', [TaskController::class, 'delete'])->name('task.delete');
 

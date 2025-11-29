@@ -19,17 +19,17 @@
             </div>
 
             <div class="card-body">
-                <form action="{{ route('task.update',$task->id) }}" method="POST">
+                  <form action="{{ route('task.update', $task->id) }}" method="POST">
                     @csrf
-                    @method('put')
+                    @method('PUT')
                     <div class="mb-3">
                         <label class="form-label">Task Name</label>
-                        <input type="text" class="form-control" value="{{ $task->task_name }}">
+                        <input type="text" name="task_name" class="form-control" value="{{ $task->task_name }}">
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label">Date</label>
-                        <input type="date" class="form-control" value="{{ $task->task_date }}">
+                        <input type="date" name="task_date" class="form-control" value="{{ $task->task_date }}">
                     </div>
 
                     <div class="form-check mb-3">
