@@ -57,6 +57,7 @@
                     <th width="60">ID</th>
                     <th>Task Name</th>
                     <th>Date</th>
+                    <th>Show</th>
                     <th width="200">Status</th>
                     <th width="150">Actions</th>
                 </tr>
@@ -68,6 +69,9 @@
                         <td>{{ $task->id }}</td>
                         <td>{{ $task->task_name }}</td>
                         <td>{{ $task->task_date }}</td>
+                       <td>
+                           <button class="btn btn-sm"><a href="{{ route('task.show',$task->id) }}">Show</a></button>
+                        </td>
                         <td>
                             @if ($task->status == 1)
                                 <span class="status-box completed">Completed</span>

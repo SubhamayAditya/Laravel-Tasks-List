@@ -17,6 +17,7 @@ Route::post('/addtask', [TaskController::class, 'create'])->name('task.store');
 
 Route::get('/edit/{task}', [TaskController::class, 'edit'])->name('task.edit');
 Route::put('/edit/{task}', [TaskController::class, 'update'])->name('task.update');
+Route::get('/show/{task}', [TaskController::class, 'show'])->name('task.show');
 
 
 

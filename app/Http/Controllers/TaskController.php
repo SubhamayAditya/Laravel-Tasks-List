@@ -63,4 +63,12 @@ class TaskController extends Controller
 
         return redirect('/')->with('success', 'Task deleted successfully');
     }
+
+
+    //Show
+    public function show(Tasks $task){
+       return view('show', [
+            'task' => $task
+        ]);
+    }
 }
